@@ -325,7 +325,12 @@ class ExecToolConfig(Base):
 
     timeout: int = 60
     path_append: str = ""
-
+    
+class TTSToolConfig(Base):
+    """Text-to-speech tool configuration."""
+    
+    api_key: str = ""  # DashScope API key
+    
 
 class MCPServerConfig(Base):
     """MCP server connection configuration (stdio or HTTP)."""
@@ -346,7 +351,7 @@ class ToolsConfig(Base):
     exec: ExecToolConfig = Field(default_factory=ExecToolConfig)
     restrict_to_workspace: bool = False  # If true, restrict all tool access to workspace directory
     mcp_servers: dict[str, MCPServerConfig] = Field(default_factory=dict)
-
+    tts: TTSToolConfig = Field(default_factory=TTSToolConfig)
 
 class Config(BaseSettings):
     """Root configuration for nanobot."""

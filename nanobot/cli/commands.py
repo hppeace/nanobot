@@ -538,6 +538,7 @@ def agent(
         restrict_to_workspace=config.tools.restrict_to_workspace,
         mcp_servers=config.tools.mcp_servers,
         channels_config=config.channels,
+        tts_api_key=config.tools.tts.api_key if config.tools.tts else None,
     )
 
     # Show spinner when logs are off (no output to miss); skip when logs are on
